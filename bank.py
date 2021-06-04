@@ -39,7 +39,8 @@ class Account:
         elif total_loan >self.loan_limit:
             return f'{amount} is greater than limit try a lower amount'
         elif self.loan>0:
-            return f'Repay your outstanding loan'
+            return f'Repay your outstanding loan of {self.loan}'
         else:
-            recieve=self.balance+amount
-            return f'You new balance is {recieve}. Repay {total_loan} in 30 days'
+            loan=self.balance+amount
+            self.loan+=total_loan
+            return f'You new balance is {loan}. Repay {total_loan} in 30 days'
